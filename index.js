@@ -1,4 +1,4 @@
-let operand = prompt("Choose an operation");
+//let operand = prompt("Choose an operation");
 let a = 1;
 let b = 2;
 

@@ -1,0 +1,68 @@
+.container{
+    border-style: solid;
+    width:500px;
+    height: 600px;
+    margin: 3% auto;
+}
+
+#screenSpace{
+    border-style: solid;
+    width:400px;
+    height: 100px;
+    margin: 7% auto;
+}
+
+p{
+    position: relative;
+    left:80%;
+    top:50%;
+}
+
+/* Operators Style */
+.operatorsContainer{
+    display: flex;
+    gap:2em;
+    justify-content: center;
+}
+.operators{
+    border-style: solid;
+    width:70px;
+    height: 70px;
+}
+h1{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+}
+/* End Operators Style */
+
+/* Numbers Style */
+.numbersContainer{
+    margin-top:10px;
+    padding-left: 10%;
+    display: grid;
+    grid-template-columns: repeat(3, 5em);
+    column-gap:1.8em;
+    row-gap: 0.5em;
+}
+.numbers{
+    border-style: solid;
+    width:70px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+}
+#zero{
+    width:200px;
+    margin-left: 30%;
+}
+/* End Numbers Style*/
