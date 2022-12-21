@@ -21,7 +21,7 @@ p{
 /* Operators Style */
 .operatorsContainer{
     display: flex;
-    gap:2em;
+    gap:1em;
     justify-content: center;
 }
 .operators{
@@ -62,7 +62,10 @@ h1{
     font-size: 50px;
 }
 #zero{
-    width:200px;
-    margin-left: 30%;
+    width:120px;
+}
+#equal{
+    width: 120px;
+    margin-left: 70%;
 }
 /* End Numbers Style*/
