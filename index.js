@@ -1,7 +1,7 @@
 let previousNumber = '';
 let currentNumber = '';
 let operator ='';
-let total = '';
+let click = 0;
 
 //Πρόσθεσα window.EventListener για να ξεκινάει η εκτέλεση μετά τη φόρτωση της σελίδας.
 window.addEventListener('DOMContentLoaded', () => {
@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     buttons.forEach(item => {
         item.addEventListener('click', (e) =>{
             currentScreen.innerText += e.target.innerText;
-            currentNumber = Number(currentScreen.innerText)
+            currentNumber = Number(currentScreen.innerText);
         })
     })
 
@@ -21,41 +21,30 @@ window.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', (e)=>{
             operator = e.target.innerText;
             operatorScreen.innerText = operator;
-            previousNumber = currentNumber;
             previousScreen.innerText = currentNumber
-            currentScreen.innerText = ''
-            currentNumber = ''
-            if(operator == "+"){
-                total = currentNumber + previousNumber
-            }else if(operator == "-"){
-                total = currentNumber - previousNumber
-            }else if(operator == "*"){
-                total = currentNumber * previousNumber
-            }else if(operator == "/"){
-                total = currentNumber / previousNumber
-            }
-
+            previousNumber = currentNumber;
+            currentScreen.innerText = '';   
         })
     })
-    
+
     clear.addEventListener('click', (e) =>{
         clearScreen();
     })
 
     equal.addEventListener('click', (e)=>{
-        manageOperator()
+        manageOperator(currentNumber, previousNumber, operator)
     })
 });
 
-function manageOperator(){
-    if(operator == "+"){
-        operate (currentNumber, previousNumber, operator)
-    }else if(operator == "-"){
-        operate (currentNumber, previousNumber, operator)
-    }else if(operator == "*"){
-        operate (currentNumber, previousNumber, operator)
-    }else if(operator == "/"){
-        operate (currentNumber, previousNumber, operator)
+function manageOperator(a,b,c){
+    if(c == "+"){
+        operate (a, b, c)
+    }else if(c == "-"){
+        operate (a, b, oc)
+    }else if(c == "*"){
+        operate (a, b, c)
+    }else if(c == "/"){
+        operate (a, b, c)
     }
 }
 
