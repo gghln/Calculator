@@ -8,16 +8,16 @@
 <body>
     <div class="container">
         <div id="screenSpace">
-            <p id="firstNumber"></p>
-            <p id="operator"></p>
-            <p id="display"></p>
+            <p id="previousScreen"></p>
+            <p id="operatorScreen"></p>
+            <p id="currentScreen"></p>
         </div>
         <div class="operatorsContainer">
             <button class="operator" value="+"><h1>+</h1></button>
             <button class="operator" value="-"><h1>-</h1></button>
             <button class="operator" value="*"><h1>*</h1></button>
             <button class="operator" value="/"><h1>/</h1></button>
-            <button class="operator"><h1>C</h1></button>
+            <button class="operator" id="clear"><h1>C</h1></button>
         </div>
         <div class="numbersContainer">
             <button class="numbers">1</button>
@@ -30,7 +30,7 @@
             <button class="numbers">8</button>
             <button class="numbers">9</button>
             <button class="numbers" id="zero">0</button>
-            <button class="numbers" id="equal">=</button>
+            <button  id="equal">=</button>
         </div>
     </div>
 </body>

@@ -11,13 +11,13 @@
     margin: 7% auto;
 }
 
-#display{
+#currentScreen{
+    text-align: left;
+}
+#operatorScreen{
     text-align: right;
 }
-#operator{
-    text-align: right;
-}
-#firstNumber{
+#previousScreen{
     text-align: right;
 }
 
@@ -53,6 +53,18 @@ h1{
     row-gap: 0.5em;
 }
 .numbers{
+    border-style: solid;
+    width:70px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+}
+#equal{
     border-style: solid;
     width:70px;
     height: 70px;
