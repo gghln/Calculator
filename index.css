@@ -12,13 +12,15 @@
 }
 
 #currentScreen{
-    text-align: left;
-}
-#operatorScreen{
     text-align: right;
+    margin-top: 30px;
+    font-size: 40px;
+    font-style: bold;
 }
 #previousScreen{
     text-align: right;
+    font-size: 25px;
+    margin-top: 0;
 }
 
 /* Operators Style */

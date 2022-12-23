@@ -1,8 +1,8 @@
 let previousNumber = '';
 let currentNumber = '';
-let operator ='';
-let click = 0;
-
+let previousOperator = '';
+let currentOperator = '';
+let total = 0;
 //Πρόσθεσα window.EventListener για να ξεκινάει η εκτέλεση μετά τη φόρτωση της σελίδας.
 window.addEventListener('DOMContentLoaded', () => {
     let buttons = document.querySelectorAll(".numbers");
@@ -19,20 +19,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
     operators.forEach(item=>{
         item.addEventListener('click', (e)=>{
-            operator = e.target.innerText;
-            operatorScreen.innerText = operator;
-            previousScreen.innerText = currentNumber
+            currentOperator = e.target.innerText;
+            previousNumber = currentNumber;
+            previousScreen.innerText = currentNumber + currentOperator
             currentScreen.innerText = ''
             currentNumber = ''
         })
     })
 
-    clear.addEventListener('click', (e) =>{
+    clear.addEventListener('click', () =>{
         clearScreen();
     })
 
-    equal.addEventListener('click', (e)=>{
-        manageOperator(currentNumber, previousNumber, operator)
+    equal.addEventListener('click', ()=>{
+        operate(previousNumber, currentNumber, currentOperator)
     })
 
 
@@ -41,67 +41,52 @@ window.addEventListener('DOMContentLoaded', () => {
             currentScreen.innerText += e.key;
             currentNumber = Number(currentScreen.innerText)
         }
-        else if(e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/"){
-            operator = e.key;
-            operatorScreen.innerText = operator;
+         else if(e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/"){
+            currentOperator = e.key;
             previousNumber = currentNumber;
-            previousScreen.innerText = currentNumber
+            previousScreen.innerText = currentNumber + currentOperator
             currentScreen.innerText = ''
             currentNumber = ''
         }
-        else if (e.key == "="){
-            operate(currentNumber,previousNumber,operator)
+         else if (e.key == "="){
+            operate(previousNumber,currentNumber,currentOperator)
         }
-   })
+    })
 });
 
-//choose operator
 function operate(a,b,operand){
     if(operand == "+"){
-        operatorScreen.innerText = '';
-        previousScreen.innerText = '';
-        add(a,b);
+        previousScreen.innerText = a + operand + b
+        currentScreen.innerText = a + b;
+        currentNumber = a + b
+        currentNumber = parseInt(currentNumber)
     }
     else if(operand == "-"){
-        operatorScreen.innerText = '';
-        previousScreen.innerText = '';
-        subtract(a,b);
+        previousScreen.innerText = a + operand + b
+        currentScreen.innerText = a - b;
+        currentNumber = a - b
+        currentNumber = parseInt(currentNumber)
     }
     else if(operand == "*"){
-        operatorScreen.innerText = '';
-        previousScreen.innerText = '';
-        multiply(a,b);
+        previousScreen.innerText = a + operand + b
+        currentScreen.innerText = a * b;
+        currentNumber = a * b
+        currentNumber = parseInt(currentNumber)
     }
     else{
-        operatorScreen.innerText = '';
-        previousScreen.innerText = '';
-        divide(a,b);
+        previousScreen.innerText = a + operand + b
+        currentScreen.innerText = a / b;
+        currentNumber = a / b
+        currentNumber = parseInt(currentNumber)
     }
 }
 
-// Add
-function add(a,b){
-    document.getElementById("currentScreen").innerText = a + b;
-}
-// Subtract
-function subtract(a,b){
-    document.getElementById("currentScreen").innerText = a - b;
-}
-// Multiply
-function multiply(a,b){
-    document.getElementById("currentScreen").innerText = a * b;
-}
-// Divide
-function divide(a,b){
-    document.getElementById("currentScreen").innerText = a / b;
-}
 
 // Clear Screen
 function clearScreen(){
     previousNumber = '';
     currentNumber = '';
-    operator ='';
+    currentOperator = '';
     currentScreen.innerText = '';
     previousScreen.innerText = '';
-    operatorScreen.innerText = '';
 }
