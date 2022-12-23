@@ -33,26 +33,27 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     equal.addEventListener('click', (e)=>{
-        manageOperator()
+        operate(currentNumber,previousNumber,operator)
     })
 
    document.addEventListener('keypress', (e)=>{
-        currentScreen.innerText += e.key;
-        currentNumber = Number(currentScreen.innerText)
+        if(e.key in [0,1,2,3,4,5,6,7,8,9]){
+            currentScreen.innerText += e.key;
+            currentNumber = Number(currentScreen.innerText)
+        }
+        else if(e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/"){
+            operator = e.key;
+            operatorScreen.innerText = operator;
+            previousNumber = currentNumber;
+            previousScreen.innerText = currentNumber
+            currentScreen.innerText = ''
+            currentNumber = ''
+        }
+        else if (e.key == "="){
+            operate(currentNumber,previousNumber,operator)
+        }
    })
 });
-
-function manageOperator(){
-    if(operator == "+"){
-        operate (currentNumber, previousNumber, operator)
-    }else if(operator == "-"){
-        operate (currentNumber, previousNumber, operator)
-    }else if(operator == "*"){
-        operate (currentNumber, previousNumber, operator)
-    }else if(operator == "/"){
-        operate (currentNumber, previousNumber, operator)
-    }
-}
 
 //choose operator
 function operate(a,b,operand){
