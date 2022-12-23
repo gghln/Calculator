@@ -22,13 +22,8 @@ window.addEventListener('DOMContentLoaded', () => {
             operator = e.target.innerText;
             operatorScreen.innerText = operator;
             previousScreen.innerText = currentNumber
-<<<<<<< HEAD
             currentScreen.innerText = ''
             currentNumber = ''
-=======
-            previousNumber = currentNumber;
-            currentScreen.innerText = '';   
->>>>>>> 33d59f04ce21e01c6acbfe486af98f30328b951e
         })
     })
 
@@ -37,14 +32,10 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     equal.addEventListener('click', (e)=>{
-<<<<<<< HEAD
-        operate(currentNumber,previousNumber,operator)
-=======
         manageOperator(currentNumber, previousNumber, operator)
->>>>>>> 33d59f04ce21e01c6acbfe486af98f30328b951e
     })
 
-<<<<<<< HEAD
+
     document.addEventListener('keypress', (e)=>{
         if(e.key in [0,1,2,3,4,5,6,7,8,9]){
             currentScreen.innerText += e.key;
@@ -63,19 +54,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
    })
 });
-=======
-function manageOperator(a,b,c){
-    if(c == "+"){
-        operate (a, b, c)
-    }else if(c == "-"){
-        operate (a, b, oc)
-    }else if(c == "*"){
-        operate (a, b, c)
-    }else if(c == "/"){
-        operate (a, b, c)
-    }
-}
->>>>>>> 33d59f04ce21e01c6acbfe486af98f30328b951e
 
 //choose operator
 function operate(a,b,operand){
