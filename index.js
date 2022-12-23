@@ -25,16 +25,6 @@ window.addEventListener('DOMContentLoaded', () => {
             previousScreen.innerText = currentNumber
             currentScreen.innerText = ''
             currentNumber = ''
-            if(operator == "+"){
-                total = currentNumber + previousNumber
-            }else if(operator == "-"){
-                total = currentNumber - previousNumber
-            }else if(operator == "*"){
-                total = currentNumber * previousNumber
-            }else if(operator == "/"){
-                total = currentNumber / previousNumber
-            }
-
         })
     })
     
@@ -45,6 +35,11 @@ window.addEventListener('DOMContentLoaded', () => {
     equal.addEventListener('click', (e)=>{
         manageOperator()
     })
+
+   document.addEventListener('keypress', (e)=>{
+        currentScreen.innerText += e.key;
+        currentNumber = Number(currentScreen.innerText)
+   })
 });
 
 function manageOperator(){
