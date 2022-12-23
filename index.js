@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
         operate(currentNumber,previousNumber,operator)
     })
 
-   document.addEventListener('keypress', (e)=>{
+    document.addEventListener('keypress', (e)=>{
         if(e.key in [0,1,2,3,4,5,6,7,8,9]){
             currentScreen.innerText += e.key;
             currentNumber = Number(currentScreen.innerText)
