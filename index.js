@@ -19,11 +19,35 @@ window.addEventListener('DOMContentLoaded', () => {
 
     operators.forEach(item=>{
         item.addEventListener('click', (e)=>{
-            currentOperator = e.target.innerText;
-            previousNumber = currentNumber;
-            previousScreen.innerText = currentNumber + currentOperator
-            currentScreen.innerText = ''
-            currentNumber = ''
+            if(currentNumber == '' || previousNumber == ''){
+                currentOperator = e.target.innerText;
+                previousScreen.innerText = currentNumber + currentOperator
+                previousNumber = currentNumber;
+                previousOperator = currentOperator
+                currentScreen.innerText = ''
+            }else {
+                currentOperator = e.target.innerText;
+                if(previousOperator == "+"){
+                    total = previousNumber + currentNumber
+                    previousScreen.innerText = total + currentOperator
+                    console.log(previousNumber, currentNumber, total)
+                } else if(previousOperator == "-"){
+                    total = previousNumber - currentNumber
+                    previousScreen.innerText = total + currentOperator
+                    console.log(previousNumber, currentNumber, total)
+                }else if(previousOperator == "*"){
+                    total = previousNumber * currentNumber
+                    previousScreen.innerText = total + currentOperator
+                    console.log(previousNumber, currentNumber,total)
+                }else if(previousOperator == "/"){
+                    total = previousNumber / currentNumber
+                    previousScreen.innerText = total + currentOperator
+                    console.log(previousNumber, currentNumber, total)
+                }
+                previousNumber = total
+                previousOperator = currentOperator
+                currentScreen.innerText = ''
+            }   
         })
     })
 
@@ -42,11 +66,38 @@ window.addEventListener('DOMContentLoaded', () => {
             currentNumber = Number(currentScreen.innerText)
         }
          else if(e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/"){
-            currentOperator = e.key;
-            previousNumber = currentNumber;
-            previousScreen.innerText = currentNumber + currentOperator
-            currentScreen.innerText = ''
-            currentNumber = ''
+            if(e.key == "/"){
+                e.preventDefault()
+            }
+            if(currentNumber == '' || previousNumber == ''){
+                currentOperator = e.key;
+                previousScreen.innerText = currentNumber + currentOperator
+                previousNumber = currentNumber;
+                previousOperator = currentOperator
+                currentScreen.innerText = ''
+            }else {
+                currentOperator = e.key;
+                if(previousOperator == "+"){
+                    total = previousNumber + currentNumber
+                    previousScreen.innerText = total + currentOperator
+                    console.log(previousNumber, currentNumber, total)
+                } else if(previousOperator == "-"){
+                    total = previousNumber - currentNumber
+                    previousScreen.innerText = total + currentOperator
+                    console.log(previousNumber, currentNumber, total)
+                }else if(previousOperator == "*"){
+                    total = previousNumber * currentNumber
+                    previousScreen.innerText = total + currentOperator
+                    console.log(previousNumber, currentNumber,total)
+                }else if(previousOperator == "/"){
+                    total = previousNumber / currentNumber
+                    previousScreen.innerText = total + currentOperator
+                    console.log(previousNumber, currentNumber, total)
+                }
+                previousNumber = total
+                previousOperator = currentOperator
+                currentScreen.innerText = ''
+            }
         }
          else if (e.key == "="){
             operate(previousNumber,currentNumber,currentOperator)
@@ -89,4 +140,5 @@ function clearScreen(){
     currentOperator = '';
     currentScreen.innerText = '';
     previousScreen.innerText = '';
+    total = 0;
 }
