@@ -1,88 +1,113 @@
+body{
+    background-color: #201710;
+}
 .container{
     border-style: solid;
-    width:500px;
-    height: 600px;
+    border-color:#C7AC92;
+    background-color: #C7AC92;
+    box-shadow: 7px 7px #888a87;
+    border-radius: 1em;
+    width:350px;
+    height: 580px;
     margin: 3% auto;
 }
+
 #screenSpace{
     border-style: solid;
-    width:400px;
+    background-color: #33425b;
+    border-color:#C7AC92;
+    border-radius: 2em;
+    width:300px;
     height: 100px;
     margin: 7% auto;
 }
 
 #currentScreen{
+    margin-top:15px;
+    margin-right: 15px;
+    font-family: 'Lato', sans-serif;
+    color: #f3f6f6;
+    height: 70px;
     text-align: right;
-    margin-top: 30px;
-    font-size: 40px;
+    font-size: 50px;
     font-style: bold;
+
 }
 #previousScreen{
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: #f3f6f6;
+    height: 30px;
+    margin-right: 15px;
     text-align: right;
-    font-size: 25px;
-    margin-top: 0;
+    font-size: 30px;
+    font-style: bold;
 }
 
-/* Operators Style */
-.operatorsContainer{
-    display: flex;
-    gap:1em;
-    justify-content: center;
+/* Buttons Style */
+.buttonsContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 5em);
+    margin-left:10px;
+    gap: 4px;
 }
-.operators{
-    border-style: solid;
-    width:70px;
-    height: 70px;
+
+.buttons{
+    border-style: none;
+    border-radius: 1em;
+    background-color: #D4E09B;
+    font-family: 'Lato', sans-serif;
+    width:80px;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 30px;
 }
+
 h1{
     margin: 0;
     padding: 0;
     text-align: center;
-    position: relative;
-    top:50%;
-    transform: translateY(-50%);
-    font-size: 50px;
+    font-size: 40px;
 }
-/* End Operators Style */
 
-/* Numbers Style */
-.numbersContainer{
-    margin-top:10px;
-    padding-left: 10%;
-    display: grid;
-    grid-template-columns: repeat(3, 5em);
-    column-gap:1.8em;
-    row-gap: 0.5em;
+/*Background Colors*/
+.operator, #float{
+    background-color: #94A89A;
 }
-.numbers{
-    border-style: solid;
-    width:70px;
-    height: 70px;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: relative;
-    top:50%;
-    transform: translateY(-50%);
-    font-size: 50px;
+#clear, #backspace{
+    background-color:#a44a3f;
 }
 #equal{
-    border-style: solid;
-    width:70px;
-    height: 70px;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: relative;
-    top:50%;
-    transform: translateY(-50%);
-    font-size: 50px;
+    width:165px;
+    margin-left:2.8em;
+    background-color: #9CB380;
 }
 #zero{
-    width:120px;
+    width:165px;
 }
-#equal{
-    width: 120px;
-    margin-left: 70%;
+
+/*Hover effects and animations*/
+.numbers:hover{
+    background-color: #d9e3aa;
+    transition:0.2s;
+    transform: scale(1.05);
 }
-/* End Numbers Style*/
+
+.operator:hover, #float:hover{
+    background-color: #94a699;
+    transition:0.2s;
+    transform: scale(1.05);
+}
+
+#clear:hover, #backspace:hover{
+    background-color: #a15b52;
+    transition:0.1s;
+    transform: scale(1.05);
+}
+#equal:hover{
+    background-color: #9eb087;
+    transition:0.2s;
+    transform: scale(1.05);
+}

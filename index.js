@@ -3,12 +3,14 @@ let currentNumber = '';
 let previousOperator = '';
 let currentOperator = '';
 let total = 0;
+
 //Πρόσθεσα window.EventListener για να ξεκινάει η εκτέλεση μετά τη φόρτωση της σελίδας.
 window.addEventListener('DOMContentLoaded', () => {
     let buttons = document.querySelectorAll(".numbers");
     let operators = document.querySelectorAll(".operator");
     let clear = document.querySelector("#clear");
     let equal = document.querySelector("#equal");
+    let backspace = document.querySelector("#backspace")
 
     buttons.forEach(item => {
         item.addEventListener('click', (e) =>{
@@ -51,6 +53,11 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+    backspace.addEventListener('click', () =>{
+        var value = currentScreen.innerText;
+        currentScreen.innerText = value.substr(0, value.length - 1); 
+    })
+
     clear.addEventListener('click', () =>{
         clearScreen();
     })
@@ -60,7 +67,9 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
 
-    document.addEventListener('keypress', (e)=>{
+
+
+    document.addEventListener('keydown', (e)=>{
         if(e.key in [0,1,2,3,4,5,6,7,8,9]){
             currentScreen.innerText += e.key;
             currentNumber = Number(currentScreen.innerText)
@@ -99,8 +108,13 @@ window.addEventListener('DOMContentLoaded', () => {
                 currentScreen.innerText = ''
             }
         }
-         else if (e.key == "="){
+        else if (e.key == "="){
             operate(previousNumber,currentNumber,currentOperator)
+        }else if (e.key == "Backspace"){
+            var value = currentScreen.innerText;
+            currentScreen.innerText = value.substr(0, value.length - 1); 
+        }else if(e.key == "Enter"){
+            clearScreen()
         }
     })
 });

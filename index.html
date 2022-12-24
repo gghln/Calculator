@@ -8,28 +8,30 @@
 <body>
     <div class="container">
         <div id="screenSpace">
-            <p id="previousScreen"></p>
-            <p id="currentScreen"></p>
+            <div id="screenContainer">
+                <p id="previousScreen"></p>
+                <p id="currentScreen"></p>
+            </div>
         </div>
-        <div class="operatorsContainer">
-            <button class="operator" value="+"><h1>+</h1></button>
-            <button class="operator" value="-"><h1>-</h1></button>
-            <button class="operator" value="*"><h1>*</h1></button>
-            <button class="operator" value="/"><h1>/</h1></button>
-            <button  id="clear"><h1>C</h1></button>
-        </div>
-        <div class="numbersContainer">
-            <button class="numbers" value="1">1</button>
-            <button class="numbers" value="2">2</button>
-            <button class="numbers" value="3">3</button>
-            <button class="numbers" value="4">4</button>
-            <button class="numbers" value="5">5</button>
-            <button class="numbers" value="6">6</button>
-            <button class="numbers" value="7">7</button>
-            <button class="numbers" value="8">8</button>
-            <button class="numbers" value="9">9</button>
-            <button class="numbers" value="0" id="zero">0</button>
-            <button  id="equal">=</button>
+        <div class="buttonsContainer">
+            <button class="buttons operator" value="+"><h1>+</h1></button>
+            <button class="buttons operator" value="-"><h1>-</h1></button>
+            <button class="buttons" id="backspace">⌫</button>
+            <button class="buttons"  id="clear"><h1>AC</h1></button>
+            <button class="buttons numbers" value="1">1</button>
+            <button class="buttons numbers" value="2">2</button>
+            <button class="buttons numbers" value="3">3</button>
+            <button class="buttons operator" value="*"><h1>X</h1></button>
+            <button class="buttons numbers" value="4">4</button>
+            <button class="buttons numbers" value="5">5</button>
+            <button class="buttons numbers" value="6">6</button>
+            <button class="buttons operator" value="/"><h1>/</h1></button>
+            <button class="buttons numbers" value="7">7</button>
+            <button class="buttons numbers" value="8">8</button>
+            <button class="buttons numbers" value="9">9</button>
+            <button class="buttons" id="float">.</button>
+            <button class="buttons numbers" value="0" id="zero">0</button>
+            <button class="buttons" id="equal">=</button>
         </div>
     </div>
 </body>
