@@ -3,9 +3,9 @@ body{
 }
 .container{
     border-style: solid;
-    border-color:#C7AC92;
-    background-color: #C7AC92;
-    box-shadow: 7px 7px #888a87;
+    border-color:#8e6a49;
+    background-color: #8e6a49;
+    box-shadow: 3px 3px #888a87;
     border-radius: 1em;
     width:350px;
     height: 580px;
@@ -15,7 +15,7 @@ body{
 #screenSpace{
     border-style: solid;
     background-color: #33425b;
-    border-color:#C7AC92;
+    border-color:#8e6a49;
     border-radius: 2em;
     width:300px;
     height: 100px;
@@ -25,7 +25,7 @@ body{
 #currentScreen{
     margin-top:15px;
     margin-right: 15px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Digital-7 Mono', sans-serif;
     color: #f3f6f6;
     height: 70px;
     text-align: right;
@@ -35,7 +35,7 @@ body{
 }
 #previousScreen{
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Digital-7 Mono', sans-serif;
     color: #f3f6f6;
     height: 30px;
     margin-right: 15px;
@@ -54,7 +54,7 @@ body{
 
 .buttons{
     border-style: none;
-    border-radius: 1em;
+    border-radius: 0.5em;
     background-color: #D4E09B;
     font-family: 'Lato', sans-serif;
     width:80px;
@@ -90,24 +90,24 @@ h1{
 
 /*Hover effects and animations*/
 .numbers:hover{
-    background-color: #d9e3aa;
+    background-color: #b2c74c;
     transition:0.2s;
     transform: scale(1.05);
 }
 
 .operator:hover, #float:hover{
-    background-color: #94a699;
+    background-color: #698170;
     transition:0.2s;
     transform: scale(1.05);
 }
 
 #clear:hover, #backspace:hover{
-    background-color: #a15b52;
+    background-color: #8c3f36;
     transition:0.1s;
     transform: scale(1.05);
 }
 #equal:hover{
-    background-color: #9eb087;
+    background-color: #596c41;
     transition:0.2s;
     transform: scale(1.05);
 }

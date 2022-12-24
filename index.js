@@ -3,6 +3,7 @@ let currentNumber = '';
 let previousOperator = '';
 let currentOperator = '';
 let total = 0;
+let float =''
 
 //Πρόσθεσα window.EventListener για να ξεκινάει η εκτέλεση μετά τη φόρτωση της σελίδας.
 window.addEventListener('DOMContentLoaded', () => {
@@ -11,6 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let clear = document.querySelector("#clear");
     let equal = document.querySelector("#equal");
     let backspace = document.querySelector("#backspace")
+    let float = document.querySelector("#float")
 
     buttons.forEach(item => {
         item.addEventListener('click', (e) =>{
@@ -32,25 +34,30 @@ window.addEventListener('DOMContentLoaded', () => {
                 if(previousOperator == "+"){
                     total = previousNumber + currentNumber
                     previousScreen.innerText = total + currentOperator
-                    console.log(previousNumber, currentNumber, total)
                 } else if(previousOperator == "-"){
                     total = previousNumber - currentNumber
                     previousScreen.innerText = total + currentOperator
-                    console.log(previousNumber, currentNumber, total)
                 }else if(previousOperator == "*"){
                     total = previousNumber * currentNumber
                     previousScreen.innerText = total + currentOperator
-                    console.log(previousNumber, currentNumber,total)
                 }else if(previousOperator == "/"){
                     total = previousNumber / currentNumber
                     previousScreen.innerText = total + currentOperator
-                    console.log(previousNumber, currentNumber, total)
                 }
                 previousNumber = total
                 previousOperator = currentOperator
                 currentScreen.innerText = ''
             }   
         })
+    })
+
+    float.addEventListener('click',(e)=>{
+        if(currentScreen.innerText.includes(".")){
+            
+        }
+        else{
+            currentScreen.innerText += e.target.innerText;
+        }
     })
 
     backspace.addEventListener('click', () =>{
@@ -89,19 +96,15 @@ window.addEventListener('DOMContentLoaded', () => {
                 if(previousOperator == "+"){
                     total = previousNumber + currentNumber
                     previousScreen.innerText = total + currentOperator
-                    console.log(previousNumber, currentNumber, total)
                 } else if(previousOperator == "-"){
                     total = previousNumber - currentNumber
                     previousScreen.innerText = total + currentOperator
-                    console.log(previousNumber, currentNumber, total)
                 }else if(previousOperator == "*"){
                     total = previousNumber * currentNumber
                     previousScreen.innerText = total + currentOperator
-                    console.log(previousNumber, currentNumber,total)
                 }else if(previousOperator == "/"){
                     total = previousNumber / currentNumber
                     previousScreen.innerText = total + currentOperator
-                    console.log(previousNumber, currentNumber, total)
                 }
                 previousNumber = total
                 previousOperator = currentOperator
@@ -115,6 +118,13 @@ window.addEventListener('DOMContentLoaded', () => {
             currentScreen.innerText = value.substr(0, value.length - 1); 
         }else if(e.key == "Enter"){
             clearScreen()
+        }else if(e.key == "."){
+            if(currentScreen.innerText.includes(".")){
+                
+            }
+            else{
+                currentScreen.innerText += e.key;
+            }
         }
     })
 });
@@ -122,27 +132,32 @@ window.addEventListener('DOMContentLoaded', () => {
 function operate(a,b,operand){
     if(operand == "+"){
         previousScreen.innerText = a + operand + b
-        currentScreen.innerText = a + b;
-        currentNumber = a + b
+        currentScreen.innerText = (a + b).toFixed(2);
+        currentNumber = (a / b).toFixed(2);
         currentNumber = parseInt(currentNumber)
     }
     else if(operand == "-"){
         previousScreen.innerText = a + operand + b
-        currentScreen.innerText = a - b;
-        currentNumber = a - b
+        currentScreen.innerText = (a - b).toFixed(2);
+        currentNumber = (a - b).toFixed(2);
         currentNumber = parseInt(currentNumber)
     }
     else if(operand == "*"){
         previousScreen.innerText = a + operand + b
-        currentScreen.innerText = a * b;
-        currentNumber = a * b
+        currentScreen.innerText = (a * b).toFixed(2);
+        currentNumber = (a * b).toFixed(2);
         currentNumber = parseInt(currentNumber)
     }
-    else{
-        previousScreen.innerText = a + operand + b
-        currentScreen.innerText = a / b;
-        currentNumber = a / b
-        currentNumber = parseInt(currentNumber)
+    else if(operand == "/"){
+        if( b != 0){
+            previousScreen.innerText = a + operand + b
+            currentScreen.innerText = (a / b).toFixed(2);
+            currentNumber = (a / b).toFixed(2);
+            currentNumber = parseInt(currentNumber)
+        }else{
+            currentScreen.innerText = "NO! DON'T!"
+            previousScreen.innerText = ''
+        }
     }
 }
 
